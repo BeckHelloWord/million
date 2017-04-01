@@ -1,0 +1,11 @@
+<div class="page-group">
+    <div id="activity" class="page page-current">
+        <div class="content infinite-scroll infinite-scroll-bottom" style="top:-14px;bottom:60px;">
+            <activity-list :lists="activityList"></activity-list>
+            <div v-if="loading" class="infinite-scroll-preloader">
+                <div class="preloader"></div>
+            </div>
+            <div class="load-all" v-if="getMore">已经全部加载完毕</div>
+        </div>
+    </div>
+</div>

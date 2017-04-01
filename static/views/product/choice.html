@@ -1,0 +1,16 @@
+<div class="page-group">
+    <div id="product" class="page page-current" style="background-color:#fff;">
+        <div class="content product-detail-content">
+            <div class="appointment-form">
+                <ul class="choice-list">
+                    <li v-for="item in list" data-id="{{ item.superId }}" @click="choice" class="clearfix">
+                        <i></i>
+                        <img :src="item.superAvatar" alt="" />
+                        <span>{{ item.superName }}</span>
+                    </li>
+                </ul>
+                <div class="btn js-submit t_c" v-on:click="goNext">提交</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<section class="login-box">
+    <!--banner start-->
+    <div class="login-banner  p-rl14  bg-blue" v-bind:class="bannerTrans"></div>
+    <!--banner end-->
+
+    <!--登录-注册 start-->
+    <div class="login-reg">
+        <!--栏目 start-->
+        <div class="lr-column-box  bg-blue">
+            <div class="lr-column  bg-blue  cc">
+                <div class="fl" v-on:click="tabs(0)">登录</div>
+                <div class="fr" v-on:click="tabs(1)">注册</div>
+                <span class="liner-box" v-bind:style="linerLeft"></span>
+            </div>
+        </div>
+        <!--栏目 end-->
+
+        <!--栏目内容区域 start-->
+        <div class="lr-con">
+            <!--登录 start-->
+            <div class="login" v-show="loginBox.login">
+                <div class="p-rl14  b-b1">
+                    <div class="input-box  b-b1 sprite-phone">
+                        <input type="number" placeholder="请输入手机号" v-model="loginOn.mobile"
+                               v-on:keyUp='setLogDisabled'/>
+                    </div>
+                    <div class="input-box  sprite-password">
+                        <input type="password" placeholder="请输入密码" v-model="loginOn.password"
+                               v-on:keyUp='setLogDisabled' autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="btn-box  p-rl14  mt5">
+                    <input class="bg-blue" type="button" value="登 录" v-on:click="Login" v-attr="disabled:true"
+                           v-bind:disabled="loginOn.flg"/>
+                    <p class="forget-pas"><span v-link="{ path: '/login/forgot', replace: false }">忘记密码？</span></p>
+                </div>
+            </div>
+            <!--登录 end-->
+
+            <!--注册 start-->
+            <div class="register" v-show="loginBox.register">
+                <div class="p-rl14  b-b1">
+                    <div class="input-box  b-b1 sprite-account">
+                        <input type="text" placeholder="昵称" v-model="register.nickname" v-on:keyUp='setRegDisabled'/>
+                    </div>
+                    <div class="input-box b-b1  sprite-phone">
+                        <input type="number" placeholder="请输入手机号" v-model="register.mobile"
+                               v-on:keyUp='setRegDisabled'/>
+                    </div>
+                    <div class="input-box b-b1  sprite-validate">
+                        <input type="number" placeholder="验证码" v-model="register.verifyNo" v-on:keyUp='setRegDisabled'/>
+                        <input type="button" class="btn-validate" v-on:click="sendMobile" value="{{validate.txt}}"
+                               v-bind:disabled="validate.state">
+                    </div>
+                    <div class="input-box  sprite-password">
+                        <input type="password" placeholder="密码" v-model="register.password"
+                               v-on:keyUp='setRegDisabled' autocomplete="off"/>
+                    </div>
+                </div>
+                <div class="btn-box  p-rl14  mt5">
+                    <input class="bg-blue" type="button" value="注 册" v-on:click="Register"
+                           v-bind:disabled="register.flg"/>
+                    <p class="txt-service"><span v-link="{ path: '/login/service', replace: false }">我同意<strong>《百万理财师服务条款》</strong></span></p>
+                </div>
+            </div>
+            <!--注册 end-->
+        </div>
+        <!--栏目内容区域 end-->
+    </div>
+    <!--登录-注册 end-->
+
+</section>

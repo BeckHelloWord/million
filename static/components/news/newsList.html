@@ -1,0 +1,22 @@
+<div class="news-list list-block">
+    <div class="list-container">
+        <div v-for="item in lists" class="news-item" @click="goDetail" data-id="{{ item.articleId }}">
+            <div class="cont large clearfix" v-if="item.isLarge">
+                <h3>{{ item.articleTitle }}</h3>
+                <img :src="item.coverUrl" alt="" />
+                <p class="clearfix">
+                    <span class="fl">{{ item.articleSourceName }}</span>
+                    <span class="fr">{{ item.dateCreated }}</span>
+                </p>
+            </div>
+            <div class="cont clearfix" v-else>
+                <h3>{{ item.articleTitle }}</h3>
+                <img :src="item.coverUrl" alt="" />
+                <p class="clearfix">
+                    <span class="fl">{{ item.articleSourceName }}</span>
+                    <span class="fr">{{ item.dateCreated }}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

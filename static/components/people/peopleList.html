@@ -1,0 +1,15 @@
+<div class="people-list list-block">
+    <div class="list-container">
+        <dl v-for="item in lists" v-on:click="goDetail" data-id="{{ item.superId }}">
+            <dt class="fl"><img :src="item.avatar" /></dt>
+            <dd>
+                <h3>{{ item.superName }}<i>{{ item.levelName }}</i><span>{{ item.address }}</span></h3>
+                <p>{{ item.oneWord }}</p>
+                <p class="clearfix">
+                    <span class="see">{{ item.subscribeCount }}人见过</span>
+                    <span class="like">{{ item.attentionCount }}人感兴趣</span>
+                </p>
+            </dd>
+        </dl>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<section class="mt2 forgot-box">
+    <div>
+        <div class="p-rl14  b-b1">
+            <div class="input-box b-b1  sprite-phone">
+                <input type="number" placeholder="请输入手机号" v-model="forget.mobile" v-on:keyUp='setDisabled'/>
+            </div>
+            <div class="input-box b-b1  sprite-validate">
+                <input type="number" placeholder="验证码" v-model="forget.verifyNo" v-on:keyUp='setDisabled'/>
+                <input type="button" class="btn-validate" v-on:click="getVerifyNo" value="{{validate.txt}}" v-bind:disabled="validate.state"/>
+            </div>
+            <div class="input-box  sprite-password">
+                <input type="password" placeholder="新密码" v-model="forget.password" v-on:keyUp='setDisabled' autocomplete="off"/>
+            </div>
+        </div>
+        <div class="btn-box  p-rl14  mt5">
+            <input class="bg-blue" type="button" value="提 交" v-on:click="findPassword" v-bind:disabled="forget.flg"/>
+        </div>
+    </div>
+</section>

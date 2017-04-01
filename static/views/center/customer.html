@@ -1,0 +1,23 @@
+<div class="page-group">
+    <div id="customer" class="page page-current">
+        <div class="content infinite-scroll infinite-scroll-bottom" style="background-color:#fff;overflow-x:hidden;">
+            <div class="customer">
+                <div class="customer-list list-block">
+                    <div class="list-container">
+                        <ul>
+                            <li v-for="item in customer" @click="goDetail(item.customerId)" v-gesture:swipeLeft="showCancel" v-gesture:swipeRight="closeCancel">
+                                <div class="clearfix">
+                                    <!--<img :src="item.avatar">-->
+                                    <h3>{{ item.customerName }}</h3>
+                                    <p>{{ item.information }}</p>
+                                </div>
+                                <div class="cancel" @click="delete(item.customerId)"><p>删除</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btn t_c" @click="add">新增</div>
+            </div>
+        </div>
+    </div>
+</div>

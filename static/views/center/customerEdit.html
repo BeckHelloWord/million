@@ -1,0 +1,133 @@
+<div class="page-group">
+    <div id="customer" class="page page-current">
+        <div class="" style="position:absolute;top: 0;right: 0;bottom: 0;left: 0;overflow: auto;-webkit-overflow-scrolling: touch;">
+            <div class="customer-form customer-add">
+                <div class="item archives">
+                    <h3>客户档案</h3>
+                    <ul class="clearfix">
+                        <li class="short">
+                            <label>
+                                <div class="label">姓名</div>
+                                <div class="input-right">
+                                    <input type="text" id="customerName" value="{{ detail.customerName }}" />
+                                </div>
+                            </label>
+                        </li>
+                        <li class="short">
+                            <label>
+                                <div class="label">年龄</div>
+                                <div class="input-right">
+                                    <input type="text" id="customerAge" maxlength="3" value="{{ detail.customerAge }}" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">电话</div>
+                                <div class="input-right">
+                                    <input type="text" id="information" maxlength="11" value="{{ detail.information }}" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">重要日期</div>
+                                <div class="input-right">
+                                    <input type="text" id="important" value="{{ detail.important }}" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">其他</div>
+                                <div class="input-right textarea">
+                                    <textarea id="remark">{{ detail.remark }}</textarea>
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item tip">
+                    <h3>近况提示</h3>
+                    <ul class="clearfix">
+                        <li>
+                            <div class="input-right textarea">
+                                <textarea id="massage">{{ detail.massage }}</textarea>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="btn t_c"><span @click="formSubmit">保存</span></div>
+                <div class="item invest">
+                    <h3>投资信息</h3>
+                    <div class="invest-item">
+                        <div class="content infinite-scroll infinite-scroll-bottom" data-distance="300" style="left:14px;overflow-x:hidden;">
+                            <div class="list-block" style="margin:0;font-size:inherit;">
+                                <div class="list-container">
+                                    <dl class="clearfix" v-for="item in investList" v-gesture:swipeLeft="showCancel" v-gesture:swipeRight="closeCancel">
+                                        <dt>{{ item.productName }}</dt>
+                                        <dd class="first short">投资金额<span>{{ item.investMoney }}元</span></dd>
+                                        <dd class="short">投资期限<span>{{ item.investLimit }}个月</span></dd>
+                                        <dd>理财期限<span>{{ item.investStartDay }} 至 {{ item.investEndDay }}</span></dd>
+                                        <dd class="cancel" @click="delete(item.customerInvestId)"><p>删除</p></dd>
+                                    </dl>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="add-btn t_c" v-if="editBol" @click="add"><i></i>新增一条投资记录</div>
+                </div>
+                <div v-if="editBol"></div>
+                <div class="item invest-add" v-else="editBol">
+                    <ul class="clearfix">
+                        <li>
+                            <label>
+                                <div class="label">产品名称</div>
+                                <div class="input-right">
+                                    <input type="text" id="productName" placeholder="企业经营贷-16303III15" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">投资金额</div>
+                                <div class="input-right">
+                                    <input type="text" id="investMoney" placeholder="699,008.00" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">起投日期</div>
+                                <div class="input-right">
+                                    <input type="text" id="investStartDay" placeholder="2016-7-21" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">投资期限</div>
+                                <div class="input-right">
+                                    <input type="text" id="investLimit" placeholder="9" />
+                                </div>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <div class="label">到期日期</div>
+                                <div class="input-right">
+                                    <input type="text" id="investEndDay" placeholder="2017-2-21" />
+                                </div>
+                            </label>
+                        </li>
+                    </ul>
+                    <div class="invest-btn clearfix t_c">
+                        <span class="fl" @click="investCancel">取消</span>
+                        <span class="fr" @click="investAdd">保存</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,23 @@
+{
+    "size":1,
+    "page":1,
+	"totalCount":1,
+	"data":{
+		"superName":"尔康",
+		"avatar":"xxx.jpg",
+		"levelName":"理财师",
+		"province":"上海",
+		"city":"上海",
+		"address":"浦东新区",
+		"companyName":"阿里巴巴",
+		"oneWord":"hello world!",
+		"superBackground":"xxx.jpg",
+		"selfIntroduction":"自我介绍--关于TA",
+		"subscribeCount":100,
+		"discussCount":20,
+		"attentionCount":80
+		},
+	"status":200,
+	"message":"成功", 
+	"isSuccess":true
+}

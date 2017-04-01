@@ -1,0 +1,83 @@
+<div id="financialList">
+    <div class="people-top">
+        <img :src="detail.superBackground" alt="" />
+        <div>
+            <h3>{{ detail.superName }}</h3>
+            <p>{{ detail.companyName }}</p>
+        </div>
+    </div>
+    <div class="people-data">
+        <p class="address">{{ detail.province }}&nbsp;&nbsp;{{ detail.city }}&nbsp;&nbsp;{{ detail.address }}</p>
+        <p class="clearfix">
+            <span class="fl">{{ detail.levelName }}</span>
+                    <span class="fr">
+                        <span class="see">{{ detail.subscribeCount }}人见过</span>
+                        <span class="like">{{ detail.attentionCount }}人感兴趣</span>
+                    </span>
+        </p>
+    </div>
+    <div class="people-info">
+        <div class="tit">关于TA：<span>{{ detail.oneWord }}</span></div>
+        <div class="cont">{{ detail.selfIntroduction }}</div>
+        <div class="btn" v-on:click="showAboutInfo" v-if="showAboutMore">展开更多简介 >></div>
+    </div>
+    <div class="detail-comment" v-if="showComment">
+        <dl v-for="item in comment">
+            <dt><img :src="item.avatar" alt="" /></dt>
+            <dd>
+                <h3><span>{{ item.memberName }}</span><time>{{ item.discussDate }}</time></h3>
+                <p>{{ item.content }}</p>
+            </dd>
+        </dl>
+        <div class="btn" v-if="showCommentMore" v-on:click="allComment">查看<span>{{ detail.discussCount }}</span>条点评 >></div>
+    </div>
+    <div class="superProduct" v-if="showProduct">
+        <div v-if="levelCode">
+            <product-list :lists="product"></product-list>
+        </div>
+        <div v-else="levelCode">
+            <div class="product-list list-block">
+                <div class="list-container">
+                    <dl v-for="item in product" v-gesture:swipeLeft="showCancel" v-gesture:swipeRight="closeCancel" @click="goDetail" data-id="{{ item.productId }}">
+                        <dt class="clearfix">
+                        <h3 class="fl"><i v-show="item.isBxProduct"></i>{{ item.productName }}</h3>
+                        <span class="fr">{{ item.subscribeCount }}人<em v-if="item.isBxProduct">购买</em><em v-else>预约</em></span>
+                        </dt>
+                        <dd>
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                <tr>
+                                    <td>
+                                        <p class="rate">{{ item.annualRevenue }}</p>
+                                        <p>预期利率</p>
+                                    </td>
+                                    <td>
+                                        <p class="amount">{{ item.investmentAmount }}</p>
+                                        <p>起投金额</p>
+                                    </td>
+                                    <td>
+                                        <p class="day">{{ item.productTerm }}</p>
+                                        <p>投资期限</p>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </dd>
+                        <dd data-id="{{ item.productId }}" class="cancel" @click="productCancel"><p>删除</p></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+        <div class="btn" v-if="showProductMore" v-on:click="allProduct">查看更多产品 >></div>
+    </div>
+    <!--<div class="people-bottom clearfix" v-if="levelCode">-->
+        <!--<div class="fl like active" v-if="likeFlag" v-on:click="clickLike"></div>-->
+        <!--<div class="fl like " v-else="likeFlag" v-on:click="clickLike"></div>-->
+        <!--<template v-if="subscribeStatus">-->
+            <!--<div class="fl appointment t_c" v-on:click="goAppointment">预约</div>-->
+        <!--</template>-->
+        <!--<template v-else>-->
+            <!--<div class="fl appointment active t_c" >已预约</div>-->
+        <!--</template>-->
+    <!--</div>-->
+</div>

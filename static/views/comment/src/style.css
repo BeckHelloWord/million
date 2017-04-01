@@ -1,0 +1,3 @@
+.comment{background:#f2f2f8;position: relative}
+.comment .commenttextarea {font-size: 14px; line-height: 1;width: 100%;height: 200px;min-height: 200px;padding: 3%; resize: none; border: none; background: #fff;overflow: auto;word-break: break-all}
+.comment .commentbutton {display: block;position:fixed;bottom: 0;font-size: 25px;width: 100%; height: 60px; color: #fff;border: 0;  background: #2d449f;}

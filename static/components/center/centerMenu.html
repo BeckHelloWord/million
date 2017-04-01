@@ -1,0 +1,10 @@
+<div class="center_menu">
+    <div class="menu"  v-for="menu in menus">
+        <div class="menu_txt {{menu.icon}}" v-on:click="menu.func">
+            {{menu.desc}}
+            <em class="menu_news" v-if="menu.new&&menu.new!=0">{{menu.new}}</em>
+            <em class="menu_time" v-if="menu.time">{{menu.time}}</em>
+            <em class="menu_apply_status" v-if="menu.applyStatus">正在审核中，请稍等</em>
+        </div>
+    </div>
+</div>

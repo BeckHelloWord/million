@@ -1,0 +1,50 @@
+<div class="activity-detail">
+    <div class="detail-top">
+        <img :src="detail.activityImages" alt="" />
+        <div class="cont">
+            <h3>{{ detail.activityName }}</h3>
+            <div class="state clearfix">
+                <span class="fl sign-up same"><em>{{ detail.subscribeCount }}</em>人已报名</span>
+                <span class="fl attention same"><em>{{ detail.attentionCount }}</em>人关注</span>
+                <span class="fr btn {{ detail.activityStatus }}">{{ detail.btnName }}</span>
+            </div>
+            <p class="add same">{{ detail.activityAddress }}</p>
+            <p class="time same"><span>活动时间：</span>{{ detail.activityDay }}</p>
+            <p class="same"><span>报名截止：</span>{{ detail.activityApplyEndDate }}</p>
+        </div>
+    </div>
+    <div class="detail-cont">
+        <h3>活动详情</h3>
+        <div class="cont" v-if="detail.activityContent">{{{ detail.activityContent }}}</div>
+        <div class="cont">暂无</div>
+    </div>
+    <div class="detail-cont">
+        <h3>注意事项</h3>
+        <div class="cont" v-if="detail.activityAttention">{{{ detail.activityAttention }}}</div>
+        <div class="cont">暂无</div>
+    </div>
+    <div class="people-bottom clearfix">
+        <div class="fl like active" v-if="likeFlag" v-on:click="clickLike"></div>
+        <div class="fl like " v-else="likeFlag" v-on:click="clickLike"></div>
+        <template v-if="subscribeStatus">
+            <div class="fl appointment t_c" v-if="isJoin" v-on:click="goAppointment">立即报名</div>
+            <div class="fl appointment t_c active" v-else>已报名</div>
+        </template>
+        <template v-else>
+            <div class="fl appointment active t_c" >活动{{ detail.btnName }}</div>
+        </template>
+    </div>
+</div>
+<div class="layer-dialog">
+    <div class="cont">
+        <h3>立即报名</h3>
+        <div class="form-cont">
+            <input type="text" class="reason" maxlength="10" placeholder="请输入邀请人姓名" />
+            <span class="reason-msg">请输入邀请人姓名!</span>
+        </div>
+        <div class="btn clearfix">
+            <span class="cancel" @click="cancelAppointment">取消</span>
+            <span class="sure" @click="sureAppointment">确定</span>
+        </div>
+    </div>
+</div>

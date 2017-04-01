@@ -1,0 +1,36 @@
+.gray{background:#f2f2f8;}
+.noOver{overflow:auto;}
+.activity-detail{padding-bottom:50px;font-size:12px;word-break:break-all;word-wrap:break-word;overflow:hidden;}
+
+.activity-detail .detail-top{background-color:#fff;}
+.activity-detail .detail-top .cont{padding:14px;}
+.activity-detail .detail-top .cont h3{font-size:16px;color:#0e1c57;}
+.activity-detail .detail-top .cont .state{padding:6px 0 14px;border-bottom:1px solid #d5d9eb;margin-bottom:14px;}
+.activity-detail .detail-top .cont p{font-size:13px;color:#666;}
+.activity-detail .detail-top .cont p span{color:#a5a5a5;}
+.activity-detail .detail-top .cont .same{line-height:20px;padding-left:22px;color:#848cb5;background-repeat:no-repeat;background-position:left center;background-size:18px;overflow:hidden;}
+.activity-detail .detail-top .cont .same.sign-up{background-image:url(sign-up.png);}
+.activity-detail .detail-top .cont .same.sign-up em{color:#f42f2b;}
+.activity-detail .detail-top .cont .same.attention{margin-left:10px;color:#848cb5;background-image:url(attention.png);background-color:transparent;}
+.activity-detail .detail-top .cont .same.add{padding-bottom:4px;color:#848cb5;background-image:url(add.png);background-position:left top;}
+.activity-detail .detail-top .cont .same.time{background-image:url(time.png);}
+.activity-detail .detail-top .cont .btn{height:20px;line-height:20px;padding:0 10px;font-size:12px;color:#fff;background-color:#569429;}
+.activity-detail .detail-top .cont .btn.registrationend{background-color:#ecb81c;}
+.activity-detail .detail-top .cont .btn.end{background-color:#a5a5a5;}
+
+.activity-detail .detail-cont{margin-top:14px;padding:14px;background-color:#fff;}
+.activity-detail .detail-cont h3{padding-bottom:6px;font-size:16px;font-weight:normal;}
+
+.layer-dialog{width:100%;height:100%;background-color:rgba(0,0,0,.8);position:fixed;left:0;top:0;z-index:9;display:none;}
+.layer-dialog .cont{width:90%;padding:0 24px;margin-top:-100px;text-align:center;background-color:#fff;position:absolute;left:5%;top:50%;}
+.layer-dialog .cont h3{line-height:70px;font-size:16px;font-weight:normal;}
+.layer-dialog .form-cont{position:relative;}
+.layer-dialog .form-cont input{width:100%;line-height:16px;border:1px solid #d5d9eb;padding:20px 0 16px;text-align:center;font-size:16px;}
+.layer-dialog .form-cont .reason-msg{line-height:20px;font-size:12px;color:#f00;position:absolute;left:0;top:100%;display:none;}
+.layer-dialog .btn{padding:10px 0;border-top:1px solid #d5d9eb;margin-top:24px;}
+.layer-dialog .btn span{float:left;width:50%;height:30px;line-height:30px;font-size:18px;color:#666;}
+.layer-dialog .btn span + span{border-left:1px solid #d5d9eb;color:#2d449f;}
+
+.modal.errTips{width:70%;margin-left:0;left:15%;}
+.modal.errTips .modal-inner{padding:1.2rem 1rem;background-color:#fff;}
+.modal.errTips .modal-inner .modal-title{font-size:1.4rem;font-weight:bold;}

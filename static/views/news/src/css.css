@@ -1,0 +1,7 @@
+.noOver{overflow:auto;}
+
+.news-detail{padding:14px;word-break:break-all;word-wrap:break-word;overflow:hidden;}
+.news-detail .detail-top h3{font-size:16px;font-weight:normal;}
+.news-detail .detail-top p{padding:14px 0;font-size:12px;color:#666;}
+.news-detail .detail-top img{width:100%;margin-bottom:14px;}
+.news-detail .detail-cont{line-height:1.8;font-size:14px;color:#666;}

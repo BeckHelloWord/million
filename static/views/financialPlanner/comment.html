@@ -1,0 +1,16 @@
+<div class="page-group">
+    <div id="financialList" class="page page-current">
+        <div class="content infinite-scroll infinite-scroll-bottom" style="background-color:#fff;">
+            <div class="detail-comment list-block" style="margin:0;">
+                <dl v-for="item in comment">
+                    <dt><img :src="item.avatar" alt="" /></dt>
+                    <dd>
+                        <h3><span>{{ item.memberName }}</span><time>{{ item.discussDate }}</time></h3>
+                        <p>{{ item.content }}</p>
+                    </dd>
+                </dl>
+                <div class="load-all" v-if="getMore">已经全部加载完毕</div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,148 @@
+<div class="page-group">
+    <div id="attention" class="page page-current attention">
+        <div class="attention-list-title">
+            <ul class="clearfix">
+                <li class="on" @click="checkTitle">产品</li>
+                <li @click="checkTitle">活动</li>
+                <li class="last"></li>
+            </ul>
+        </div>
+        <div class="content infinite-scroll infinite-scroll-bottom" style="top:50px;">
+            <div v-if="showPart">
+                <template v-if="product.length != 0">
+                    <div class="product-list list-block">
+                        <div class="list-container">
+                            <dl v-for="item in product" v-gesture:swipeLeft="showCancel" v-gesture:swipeRight="closeCancel" @click="goDetail" data-id="{{ item.productId }}">
+                                <dt class="clearfix">
+                                <h3 class="fl"><i v-show="item.isBxProduct"></i>{{ item.productName }}</h3>
+                                <span class="fr">{{ item.subscribeCount }}人<em v-if="item.isBxProduct">购买</em><em v-else>预约</em></span>
+                                </dt>
+                                <dd>
+                                    <table width="100%" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                            <td>
+                                                <p class="rate">{{ item.annualRevenue }}</p>
+                                                <p>预期利率</p>
+                                            </td>
+                                            <td>
+                                                <p class="amount">{{ item.investmentAmount }}</p>
+                                                <p>起投金额</p>
+                                            </td>
+                                            <td>
+                                                <p class="day">{{ item.productTerm }}</p>
+                                                <p>投资期限</p>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </dd>
+                                <dd data-attentionId="{{ item.attentionId }}" class="cancel" @click="attentionCancel"><p>删除</p></dd>
+                            </dl>
+                        </div>
+                    </div>
+                    <div v-if="loading" class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                    </div>
+                    <div class="load-all" v-if="getMore">已经全部加载完毕</div>
+                </template>
+                <template v-else>
+                    <div class="subscribe_nomsg gray-bg">
+                        <div  class="not_open">
+                            <img src="static/views/center/src/images/not_open.png">
+                            <p>暂无内容</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+            <div v-else="showPart">
+                <template v-if="activity.length != 0">
+                    <div class="activity-list list-block">
+                        <div class="list-container">
+                            <div class="item" v-for="item in activity" v-gesture:swipeLeft="showCancel" v-gesture:swipeRight="closeCancel" @click="goDetail" data-id="{{ item.activityId }}">
+                                <img :src="item.activityImageContent" alt="" />
+                                <div class="cont">
+                                    <h3>{{ item.activityName }}</h3>
+                                    <div class="state clearfix">
+                                        <span class="fl sign-up same"><em>{{ item.subscribeCount }}</em>人已报名</span>
+                                        <span class="fl attention same"><em>{{ item.attentionCount }}</em>人关注</span>
+                                        <span class="fr btn {{ item.activityStatus }}">{{ item.btnName }}</span>
+                                    </div>
+                                    <p class="add same">{{ item.activityAddress }}</p>
+                                    <p class="time same"><span>活动时间：</span>{{ item.activityDay }}</p>
+                                    <p class="same"><span>报名截止：</span>{{ item.activityApplyEndDate }}</p>
+                                </div>
+                                <div data-attentionId="{{ item.attentionId }}" class="cancel" @click="attentionCancel"><p>删除</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div v-if="loading" class="infinite-scroll-preloader">
+                        <div class="preloader"></div>
+                    </div>
+                    <div class="load-all" v-if="getMore">已经全部加载完毕</div>
+                </template>
+                <template v-else>
+                    <div class="subscribe_nomsg gray-bg">
+                        <div  class="not_open">
+                            <img src="static/views/center/src/images/not_open.png">
+                            <p>暂无内容</p>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--<section class="attention" >-->
+    <!--<div  class="attention_tabs">-->
+        <!--<div class="attention_tab_1 selected" data-tab="1" v-on:click="changeTab">理财师</div>-->
+        <!--<div class="attention_tab_2" data-tab="2"  v-on:click="changeTab">产品</div>-->
+        <!--<div class="attention_tab_3" data-tab="3"  v-on:click="changeTab">活动</div>-->
+        <!--<p class="attention_select" id="attention_select" style="-webkit-transition: -webkit-transform ease-out 0.4s;-webkit-transform:translateX(0)"></p>-->
+    <!--</div>-->
+
+    <!--<div class="table_con" id="tabList1">-->
+        <!--<template v-if="subList.length!=0">-->
+            <!--<template  v-for="sub in subList" >-->
+                <!--<div class="adviser" v-on:click="toDetail" data-super="{{sub.superId}}">-->
+                    <!--<div class="avatar">-->
+                        <!--<div>-->
+                            <!--<img :src="sub.avatar"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="introduce">-->
+                        <!--<div class="introduce_name">-->
+                            <!--<div class="introduce_a">{{sub.superName}}</div>-->
+                            <!--<div class="introduce_b">{{sub.levelName}}</div>-->
+                            <!--<div class="introduce_c">{{sub.province+sub.city+" "}}<template v-if="sub.address">{{sub.address}}</template></div>-->
+                            <!--<div class="clear"></div>-->
+                        <!--</div>-->
+                        <!--<div class="introduce_txt">-->
+                            <!--{{sub.oneWord}}-->
+                        <!--</div>-->
+                        <!--<div class="introduce_like">-->
+                            <!--<div class="like_a">{{sub.subscribeCount}}人见过</div>-->
+                            <!--<div class="like_b">{{sub.attentionCount}}人感兴趣</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</template>-->
+        <!--</template>-->
+        <!--<template v-else>-->
+            <!--<div class="subscribe_nomsg gray-bg">-->
+                <!--<div  class="not_open">-->
+                    <!--<img src="static/views/center/src/images/not_open.png">-->
+                    <!--<p>暂无内容</p>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</template>-->
+    <!--</div>-->
+    <!--<div class="table_con hidden " id="tabList2">-->
+       <!--<not-open></not-open>-->
+    <!--</div>-->
+    <!--<div class="table_con hidden " id="tabList3">-->
+        <!--<not-open></not-open>-->
+    <!--</div>-->
+<!--</section>-->

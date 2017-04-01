@@ -1,0 +1,39 @@
+<div style="position: relative;height: 100%">
+    <div class="tableList" v-gesture:swipeLeft="showCancel" v-gesture:swipeRight="closeCancel" v-on:click="toDetail">
+        <div class="table_title">
+            <div class="table_time"><em class="table_date1">预约时间:</em><em class="table_date2">{{sub.subDate}}</em></div>
+            <div class="to_rate" v-on:click="toPingJia">去评价</div>
+        </div>
+        <div class="adviser">
+            <div class="avatar">
+                <div>
+                    <img :src="sub.avatar">
+                </div>
+            </div>
+            <div class="introduce">
+                <div class="introduce_name">
+                    <div class="introduce_a">{{sub.superName}}</div>
+                    <div class="introduce_b">{{sub.levelName}}</div>
+                    <div class="introduce_c">{{sub.province+sub.city+" "}}<template v-if="sub.address">{{sub.address}}</template></div>
+                    <div class="clear"></div>
+                </div>
+                <div class="introduce_txt">
+                    {{sub.oneWord}}
+                </div>
+                <div class="introduce_like">
+                    <div class="like_a">{{sub.subscribeCount}}人见过</div>
+                    <div class="like_b">{{sub.attentionCount}}人感兴趣</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sub_cancel">
+        <div class="cancel" v-on:click="doCancel">
+            <div class="cancel_txt">
+                取消<br>预约
+            </div>
+        </div>
+    </div>
+</div>
+
+

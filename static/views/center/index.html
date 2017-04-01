@@ -1,0 +1,20 @@
+<section class="center">
+    <div class="center_banner" id="center_banner" >
+        <img :src="superBackground" class="center_img">
+        <p class="center_username" >{{nickname}}</p>
+    </div>
+    <template v-for="menu in menuList">
+        <center-menu :menus="menu" ></center-menu>
+    </template>
+    <div class="center_menu">
+    <a class="menu" href="tel:02160451560">
+        <div class="menu_txt icon_phone">
+            客服
+
+            <em class="menu_time">每日7:00~23:00</em>
+        </div>
+    </a>
+    </div>
+    <div class="logout" @click="logout">退出登录</div>
+    <cover></cover>
+</section>

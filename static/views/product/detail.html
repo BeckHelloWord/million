@@ -1,0 +1,57 @@
+<div class="product-detail">
+    <div class="detail-top">
+        <h3><i v-if="isBxProduct"></i>{{ detail.productName }}</h3>
+        <table width="100%" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td>
+                    <p class="rate">{{ detail.annualRevenue }}</p>
+                    <p>预期利率</p>
+                </td>
+                <td>
+                    <p class="amount">{{ detail.investmentAmount }}</p>
+                    <p>起投金额</p>
+                </td>
+                <td>
+                    <p class="day">{{ detail.productTerm }}</p>
+                    <p>投资期限</p>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="cont">
+            <span class="sign-up same"><em>{{ detail.subscribeCount }}</em>人约见</span>
+            <span class="attention same"><em>{{ detail.attentionCount }}</em>人感兴趣</span>
+        </div>
+    </div>
+    <div class="detail-cont">
+        <div class="hd clearfix t_c">
+            <span class="on" @click="tabCheck(0)">基本信息</span>
+            <span @click="tabCheck(1)">产品亮点</span>
+        </div>
+        <div class="bd">{{{ detail.depict }}}</div>
+        <div class="bd hidden">{{{ detail.attention }}}</div>
+        <div class="fd">
+            <a v-for="file in detail.fileList" href="{{ file.fileUrl }}" @click="showShareMask">{{ file.fileTitle }}</a>
+        </div>
+    </div>
+    <div class="people-bottom clearfix" v-if="levelCode">  <!-- 客户 -->
+        <div class="fl like active" v-if="likeFlag" v-on:click="clickLike"></div>
+        <div class="fl like" v-else="likeFlag" v-on:click="clickLike"></div>
+        <template v-if="isBxProduct">
+            <div class="fl appointment t_c" @click="getRecommendCode">立即投资</div>
+        </template>
+        <template v-else>
+            <div class="fl appointment t_c" @click="goAppointment" v-if="isJoin" >预约咨询</div>
+            <div class="fl appointment t_c active" v-else="isJoin" >已预约</div>
+        </template>
+    </div>
+    <div class="people-bottom clearfix" v-else="levelCode">  <!-- 理财师 -->
+        <div style="width:100%;" class="appointment t_c" v-on:click="addMicroStation">添加到微站</div>
+    </div>
+</div>
+<div class="shareMask" @click="hideShareMask">
+    <div class="cont">
+        <img src="static/views/product/src/share.png" alt="" />
+    </div>
+</div>

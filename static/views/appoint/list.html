@@ -1,0 +1,55 @@
+<div class="page-group">
+    <div id="appointment" class="page page-current">
+        <div class="appoint-list-title">
+            <ul class="clearfix" v-if="levelCode"> <!-- 理财师 -->
+                <li class="on" @click="checkTitle">客户</li>
+                <li @click="checkTitle">活动</li>
+                <li class="last"></li>
+            </ul>
+            <ul class="clearfix" v-else> <!-- 客户 -->
+                <li class="on" @click="checkTitle">产品</li>
+                <li @click="checkTitle">活动</li>
+                <li class="last"></li>
+            </ul>
+        </div>
+        <div class="content infinite-scroll infinite-scroll-bottom" style="top:50px;bottom:60px;">
+            <div v-if="levelCode">
+                <div v-if="showPart">
+                    <div class="customer-list list-block">
+                        <div class="list-container">
+                            <ul>
+                                <li v-for="item in customer">
+                                    <div class="clearfix">
+                                        <img :src="item.avatar">
+                                        <h3>{{ item.memberName }}</h3>
+                                        <p>{{ item.mobile }}</p>
+                                        <a href="tel:{{ item.mobile }}">联系</a>
+                                    </div>
+                                    <p>预约时间: <span>{{ item.dateCreated }}</span></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div v-else="showPart">
+                    <activity-list :lists="activity"></activity-list>
+                </div>
+            </div>
+            <div v-else="levelCode">
+                <div v-if="showPart">
+                    <product-list :lists="product"></product-list>
+                </div>
+                <div v-else="showPart">
+                    <activity-list :lists="activity"></activity-list>
+                </div>
+            </div>
+
+            <div v-if="loading" class="infinite-scroll-preloader">
+                <div class="preloader"></div>
+            </div>
+            <div class="load-all" v-if="getMore">已经全部加载完毕</div>
+        </div>
+    </div>
+</div>
+
+

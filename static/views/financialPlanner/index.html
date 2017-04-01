@@ -1,0 +1,25 @@
+<div class="page-group">
+    <div id="financial" class="page page-current">
+        <div class="content" style="bottom:60px;">
+            <!-- Slider -->
+            <banner-slider :sliders="banner"></banner-slider>
+            <div class="tabTit clearfix">
+                <span class="s1" @click="goList('news')">资讯</span>
+                <span class="s2" @click="goList('activity')">活动</span>
+                <span class="s3" @click="goList('product')">产品</span>
+            </div>
+            <div class="index-item">
+                <div class="tit t_c">热门资讯</div>
+                <news-list :lists="news"></news-list>
+            </div>
+            <div class="index-item">
+                <div class="tit t_c">热门活动</div>
+                <activity-list :lists="activity"></activity-list>
+            </div>
+            <div class="index-item">
+                <div class="tit t_c">热门产品</div>
+                <product-list :lists="product"></product-list>
+            </div>
+        </div>
+    </div>
+</div>

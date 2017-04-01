@@ -1,0 +1,18 @@
+<div class="page-group">
+    <div id="product" class="page page-current">
+        <div class="people-list-title">
+            <ul class="clearfix">
+                <li data-code="" @click="titleCheck">全部</li>
+                <li v-for="list in classify" data-code="{{ list.classifyId }}" @click="titleCheck">{{ list.name }}</li>
+                <li class="last"></li>
+            </ul>
+        </div>
+        <div class="content infinite-scroll infinite-scroll-bottom" style="top:50px;bottom:60px;">
+            <product-list :lists="productList"></product-list>
+            <div v-if="loading" class="infinite-scroll-preloader">
+                <div class="preloader"></div>
+            </div>
+            <div class="load-all" v-if="getMore">已经全部加载完毕</div>
+        </div>
+    </div>
+</div>

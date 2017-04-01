@@ -1,0 +1,27 @@
+<section class="subscribe" >
+    <div  class="subscribe_tabs">
+        <div class="subscribe_tab_1 selected" data-tab="1" v-on:click="changeTab">理财师</div>
+        <div class="subscribe_tab_2" data-tab="2"  v-on:click="changeTab">活动</div>
+        <p class="subscribe_select" id="subscribe_select" style="-webkit-transition: -webkit-transform ease-out 0.4s;-webkit-transform:translateX(0)"></p>
+    </div>
+
+    <div class="table_con" id="tabList1">
+        <template v-if="subList.length!=0">
+            <template  v-for="sub in subList" >
+            <sub-list :sub="sub"></sub-list>
+            </template>
+        </template>
+        <template v-else>
+            <div class="subscribe_nomsg gray-bg">
+                <div  class="not_open">
+                    <img src="static/views/center/src/images/not_open.png">
+                    <p>暂无内容</p>
+                </div>
+            </div>
+        </template>
+    </div>
+    <div class="table_con hidden " id="tabList2">
+        <not-open></not-open>
+    </div>
+
+</section>

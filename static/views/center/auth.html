@@ -1,0 +1,65 @@
+<div class="page-group">
+    <div id="auth" class="page page-current auth">
+        <div class="content">
+            <div class="auth-item">
+                <h3>基本信息</h3>
+                <ul>
+                    <li>
+                        <span class="label">姓名</span>
+                        <span class="txt"><input type="text" placeholder="请输入您的真实姓名" id="realName" class="js-verify" /></span>
+                    </li>
+                    <li>
+                        <span class="label">性别</span>
+                        <span class="txt"><input type="text" placeholder="请选择" id="sex" class="js-verify" /></span>
+                    </li>
+                    <li>
+                        <span class="label">目前所在城市</span>
+                        <span class="txt"><input type="text" placeholder="请选择" id="city" class="js-verify" /></span>
+                    </li>
+                    <li>
+                        <span class="label">公司</span>
+                        <span class="txt"><input type="text" placeholder="您目前所在的公司" id="company" class="js-verify" /></span>
+                    </li>
+                </ul>
+            </div>
+            <div class="auth-item">
+                <h3>上传名片或工作照，需要<span>正反面</span></h3>
+                <div class="imgUpload clearfix">
+                    <div class="img-item">
+                        <div class="upload-btn btn-new"><input type="file" id="authImagesOne" accept="image/*" /></div><!--  accept="image/*" -->
+                        <div class="upload-img"><img src="" alt="" /><div class="close" @click="close"></div></div>
+                    </div>
+                    <div class="img-item">
+                        <div class="upload-btn btn-new"><input type="file" id="authImagesTwo" accept="image/*" /></div>
+                        <div class="upload-img"><img src="" alt="" /><div class="close" @click="close"></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="auth-item personality">
+                <h3>个性签言</h3>
+                <ul>
+                    <li>
+                        <span class="label" style="display:none;">一句话认证信息</span>
+                        <span class="txt"><input type="text" placeholder="一句话认证信息(8-15字符)" id="oneWord" class="js-verify" /></span>
+                    </li>
+                    <li>
+                        <span class="label" style="display:none;">个人简介</span>
+                        <textarea placeholder="个人简介" id="selfIntroduction" class="js-verify"></textarea>
+                    </li>
+                </ul>
+            </div>
+            <div class="btn t_c" @click="apply">申请</div>
+        </div>
+    </div>
+</div>
+<div class="auth-transform">
+    <div class="auth-tit clearfix">
+        <span class="fl" @click="closeTransform">取消</span>
+        <span class="fr" @click="getImgUrl">完成</span>
+    </div>
+    <div class="img-cont">
+        <div class="mask mask-top"></div>
+        <div class="cont"></div>
+        <div class="mask mask-bottom"></div>
+    </div>
+</div>

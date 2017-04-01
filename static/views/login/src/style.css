@@ -1,0 +1,56 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input{border:0;}
+.bg-blue{background-color: #2d449f;}
+.bg-purple{background-color:#f2f2f8;}
+.bg-white{background-color:#fff;}
+.b-b1{border-bottom:1px solid #d5d9eb;}
+.input-box .btn-validate{position: absolute;top:50%;right:0;width:auto;padding:0 5%;color:#2d449f;font-size:15px;border-left:1px solid #d5d9eb;-webkit-transform:translateY(-50%);transform:translateY(-50%);}
+.input-box .btn-validate[disabled]{color:#999;}
+.mt5{margin-top:5.33%;}
+.mt2{margin-top:2.66%;}
+.mb2{margin-bottom:2.66%;}
+
+.pd-l2{padding-left:2.66%!important;}
+
+.sprite-icon{position: absolute; top:50%; left:0; transform: translateY(-50%); -webkit-transform: translateY(-50%);}
+.sprite-phone{background: url("../src/sprite_phone.png") no-repeat 20px center; background-size:6% auto;}
+.sprite-password{background: url("../src/sprite_password.png") no-repeat 20px center; background-size:7% auto;}
+.sprite-account{background: url("../src/sprite_account.png") no-repeat 20px center;background-size:7% auto;}
+.sprite-validate{background: url("../src/sprite_validate.png") no-repeat 20px center;background-size:7% auto;}
+
+.input-box{position: relative;}
+.input-box input{width: 100%; padding: 6% 16% 3%; font-size: 15px;color:#333; line-height: 2; background: transparent;}
+.btn-box{}
+.btn-box input{width:100%; padding:3.2% 0; font-size:18px; color:#fff; border-radius: 4px;}
+.btn-box input[disabled]{background: #999;}
+.login-box{font-size:15px; color:#fff;}
+.login-banner{width:100%; height:90px; background-image: url("../src/mil_logo.png"); background-size:60% auto; background-repeat: no-repeat; background-position: center;-webkit-transition: all .5s linear;transition: all .5s linear;-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);z-index: 9;}
+.login-banner-trans{height:50px;background-size:40% auto;background-position:92% center;}
+.login-reg{}
+.lr-column-box{padding:0 37px;}
+.login-reg .lr-column{position: relative;}
+.login-reg .lr-column .liner-box{position: absolute; bottom:0; left:0; width:40%; height:2px; background: #f6cd53;-webkit-transition: all .3s linear;transition: all .3s linear;-webkit-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+.login-reg .lr-column>div{width:40%; height: 51px; line-height: 51px; font-size:15px; color:#d5d9eb; text-align: center;}
+.login-reg .lr-con{width:100%;}
+.forget-pas{text-align:right;color:#666;line-height:3;}
+
+.txt-service{text-align: left;color:#848cb5;}
+.txt-service span{padding-left:7.2%;}
+.txt-service strong{color:#ecb81c;line-height:3;font-weight: normal;}
+
+/*忘记密码 start*/
+.forgot-box{min-height:100%;background-color:#fff;}
+/*忘记密码 end*/
+
+/*修改登录密码 start*/
+.updatePassword{min-height:100%;background-color:#fff;}
+.updatePassword .input-box input{padding-left:2.66%;}
+/*修改登录密码 end*/
+
+/*服务协议*/
+.service{padding:5%;font-size:12px!important;overflow: scroll;height: 100%;}
+.service p,.service span,.service strong,.service h1{font-size:12px!important;}

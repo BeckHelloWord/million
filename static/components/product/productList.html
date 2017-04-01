@@ -1,0 +1,30 @@
+<div class="product-list list-block">
+    <div class="list-container">
+        <dl v-for="item in lists" @click="goDetail" data-id="{{ item.productId }}">
+            <dt class="clearfix">
+                <h3 class="fl"><i v-show="item.isBxProduct"></i>{{ item.productName }}</h3>
+                <span class="fr">{{ item.subscribeCount }}人<em v-if="item.isBxProduct">购买</em><em v-else>预约</em></span>
+            </dt>
+            <dd>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                    <tbody>
+                    <tr>
+                        <td>
+                            <p class="rate">{{ item.annualRevenue }}</p>
+                            <p>预期利率</p>
+                        </td>
+                        <td>
+                            <p class="amount">{{ item.investmentAmount }}</p>
+                            <p>起投金额</p>
+                        </td>
+                        <td>
+                            <p class="day">{{ item.productTerm }}</p>
+                            <p>投资期限</p>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </dd>
+        </dl>
+    </div>
+</div>

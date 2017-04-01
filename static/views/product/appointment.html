@@ -1,0 +1,36 @@
+<div class="page-group">
+    <div id="financialList" class="page page-current" style="background-color:#fff;">
+        <div class="content people-detail-content">
+            <div class="appointment-form">
+                <div class="item">
+                    <div class="tit">产品类型</div>
+                    <ul class="productClassify double clearfix">
+                        <li><span>互联网金融</span></li>
+                        <li><span>海外保险</span></li>
+                        <li><span>私募基金</span></li>
+                        <li><span>海外房产</span></li>
+                        <li><span>其他</span></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="tit">可投资金</div>
+                    <ul class="investAmount double clearfix">
+                        <li><span>10-50万</span></li>
+                        <li><span>50-100万</span></li>
+                        <li><span>100-300万</span></li>
+                        <li><span>300-1000万</span></li>
+                        <li><span>1000万以上</span></li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="tit">咨询内容</div>
+                    <div class="txt">
+                        <textarea maxlength="50" placeholder="请输入您想咨询的问题，字数控制在50个字内"></textarea>
+                        <div class="num-cont"><span id="num">0</span>/50</div>
+                    </div>
+                </div>
+                <div class="btn js-submit t_c" v-on:click="formAjaxSubmit">提交</div>
+            </div>
+        </div>
+    </div>
+</div>

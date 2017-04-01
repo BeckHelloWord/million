@@ -1,0 +1,9 @@
+.message {height: 100%;overflow: scroll;background-color: #edf0f3}
+.message .message_body {overflow: auto;padding: 3% 2.5%;border-bottom: 1px solid #d5d9eb;background-color: white}
+.message .message_body img {width: 100%;}
+.message .message_body .message_img {width: 15%;border-radius: 100%;float: left;overflow: hidden}
+.message .message_body .text {width:82%;display: block;vertical-align: top;margin-left: 18%;background-color: white}
+.message .message_body .text .message_name{font-size: 16px;line-height: 2;color: #222;}
+.message .message_body .text .message_span { font-size: 14px; color: #808080;}
+.message .message_body  span.date {font-size: 10px; color: #cacaca;vertical-align: top;float: right;margin-top: 2%;}
+.clean {clear:both;}

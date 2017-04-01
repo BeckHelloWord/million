@@ -1,0 +1,20 @@
+<div class="p-rl14 mt2 mb2 bg-white ">
+    <div class="input-box">
+        <input class="pd-l2" type="password" placeholder="请输入当前登录密码" v-model="updateInfo.oldPassWord"
+               v-on:keyUp='setDisabled' autocomplete="off"/>
+    </div>
+</div>
+<div class="updatePassword mt2">
+    <div class="p-rl14  b-b1">
+
+        <div class="input-box  b-b1">
+            <input type="password" autocomplete="off" placeholder="请输入新密码" v-model="updateInfo.password" v-on:keyUp='setDisabled'/>
+        </div>
+        <div class="input-box">
+            <input type="password" autocomplete="off" placeholder="确认新密码" v-model="updateInfo.confirmPassWord" v-on:keyUp='setDisabled'/>
+        </div>
+    </div>
+    <div class="btn-box  p-rl14  mt5">
+        <input class="bg-blue" type="button" value="确认修改" v-on:click="update" v-bind:disabled="updateInfo.flg"/>
+    </div>
+</div>

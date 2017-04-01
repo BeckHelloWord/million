@@ -1,0 +1,18 @@
+<div class="activity-list list-block">
+    <div class="list-container">
+        <div class="item" v-for="item in lists" @click="goDetail" data-id="{{ item.activityId }}">
+            <img :src="item.activityImageContent" alt="" />
+            <div class="cont">
+                <h3>{{ item.activityName }}</h3>
+                <div class="state clearfix">
+                    <span class="fl sign-up same"><em>{{ item.subscribeCount }}</em>人已报名</span>
+                    <span class="fl attention same"><em>{{ item.attentionCount }}</em>人关注</span>
+                    <span class="fr btn {{ item.activityStatus }}">{{ item.btnName }}</span>
+                </div>
+                <p class="add same">{{ item.activityAddress }}</p>
+                <p class="time same"><span>活动时间：</span>{{ item.activityDay }}</p>
+                <p class="same"><span>报名截止：</span>{{ item.activityApplyEndDate }}</p>
+            </div>
+        </div>
+    </div>
+</div>

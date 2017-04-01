@@ -1,0 +1,46 @@
+<div class="customer-form customer-add">
+    <div class="item archives">
+        <h3>客户档案</h3>
+        <ul class="clearfix">
+            <li class="short">
+                <label>
+                    <div class="label">姓名</div>
+                    <div class="input-right"><input type="text" id="customerName" /></div>
+                </label>
+            </li>
+            <li class="short">
+                <label>
+                    <div class="label">年龄</div>
+                    <div class="input-right"><input type="text" id="customerAge" maxlength="3" /></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div class="label">电话</div>
+                    <div class="input-right"><input type="text" id="information" maxlength="11" /></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div class="label">重要日期</div>
+                    <div class="input-right"><input type="text" id="important" /></div>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <div class="label">其他</div>
+                    <div class="input-right textarea"><textarea id="remark"></textarea></div>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <div class="item tip">
+        <h3>近况提示</h3>
+        <ul class="clearfix">
+            <li>
+                <div class="input-right textarea"><textarea id="massage" placeholder="请在此输入文本"></textarea></div>
+            </li>
+        </ul>
+    </div>
+    <div class="btn t_c" @click="formSubmit"><span>保存</span></div>
+</div>
